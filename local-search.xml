@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>回溯算法</title>
+    <link href="/2025/03/02/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/"/>
+    <url>/2025/03/02/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<h1 id="回溯算法"><a href="#回溯算法" class="headerlink" title="回溯算法"></a>回溯算法</h1><p>回溯算法是递归算法的副产品，一般回溯算法的代码模板为：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// 以组合问题为例，其中n为元素的个数，k为组合集合元素个数，startIndex为搜索的位置</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">backTracking</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> k, <span class="hljs-type">int</span> startIndex)</span></span>&#123;<br>    <span class="hljs-comment">// 递归的出口，就是找到了一个组合</span><br>    <span class="hljs-keyword">if</span>(path.<span class="hljs-built_in">size</span>() == k)&#123; <br>        result.<span class="hljs-built_in">push_back</span>(path);<br>        <span class="hljs-keyword">return</span>;<br>    &#125; <br>    <span class="hljs-comment">// 从startIndex开始搜索，一般startIndex第一次传入为1，i &lt;= n可以改成i &lt;= n - (k - path.size()) + 1，达到剪枝效果</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = startIndex; i &lt;= n; i++)&#123;<br>        path.<span class="hljs-built_in">push_back</span>(i); <span class="hljs-comment">// 把当前搜索结果加入结果集</span><br>        <span class="hljs-built_in">backTracking</span>(n, k, i<span class="hljs-number">+1</span>) <span class="hljs-comment">// 搜索下一层可以加入结果集的结果，就是递归</span><br>        path.<span class="hljs-built_in">pop_back</span>(); <span class="hljs-comment">// 回溯，穷举完剩下的所有结果</span><br>    &#125;<br>&#125;<br><br>vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">getResult</span>(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> k)&#123;<br>    <span class="hljs-built_in">backTracking</span>(n, k, <span class="hljs-number">1</span>);<br>    <span class="hljs-keyword">return</span> result;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>数据结构与算法</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>二叉树学习</title>
     <link href="/2025/03/02/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%AD%A6%E4%B9%A0/"/>
     <url>/2025/03/02/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%AD%A6%E4%B9%A0/</url>

@@ -19,24 +19,22 @@
   <meta name="author" content="rongjia ouyang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="c++定义二叉树（链式存储）123456struct TreeNode &#123;	int val;    TreeNode *left;	&#x2F;&#x2F; 单独声明指针变量时，TreeNode* left和TreeNode* right等价，都是TreeNode指针类型    TreeNode *right;    TreeNode(int x) : val(x), left(NULL), right(N">
+    <meta name="description" content="回溯算法回溯算法是递归算法的副产品，一般回溯算法的代码模板为： 12345678910111213141516171819&#x2F;&#x2F; 以组合问题为例，其中n为元素的个数，k为组合集合元素个数，startIndex为搜索的位置void backTracking(int n, int k, int startIndex)&#123;    &#x2F;&#x2F; 递归的出口，就是找到了一个组合    if(path.size">
 <meta property="og:type" content="article">
-<meta property="og:title" content="二叉树学习">
-<meta property="og:url" content="http://example.com/2025/03/02/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:title" content="回溯算法">
+<meta property="og:url" content="http://example.com/2025/03/02/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="Gold_West">
-<meta property="og:description" content="c++定义二叉树（链式存储）123456struct TreeNode &#123;	int val;    TreeNode *left;	&#x2F;&#x2F; 单独声明指针变量时，TreeNode* left和TreeNode* right等价，都是TreeNode指针类型    TreeNode *right;    TreeNode(int x) : val(x), left(NULL), right(N">
+<meta property="og:description" content="回溯算法回溯算法是递归算法的副产品，一般回溯算法的代码模板为： 12345678910111213141516171819&#x2F;&#x2F; 以组合问题为例，其中n为元素的个数，k为组合集合元素个数，startIndex为搜索的位置void backTracking(int n, int k, int startIndex)&#123;    &#x2F;&#x2F; 递归的出口，就是找到了一个组合    if(path.size">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2025/03/02/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%AD%A6%E4%B9%A0/inOrder.png">
-<meta property="article:published_time" content="2025-03-02T06:37:58.000Z">
-<meta property="article:modified_time" content="2025-03-02T07:27:58.151Z">
+<meta property="article:published_time" content="2025-03-02T09:57:56.000Z">
+<meta property="article:modified_time" content="2025-03-02T10:04:58.682Z">
 <meta property="article:author" content="rongjia ouyang">
 <meta property="article:tag" content="数据结构与算法">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/2025/03/02/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%AD%A6%E4%B9%A0/inOrder.png">
   
   
   
-  <title>二叉树学习 - Gold_West</title>
+  <title>回溯算法 - Gold_West</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -215,7 +213,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="二叉树学习"></span>
+            <span id="subtitle" data-typed-text="回溯算法"></span>
           
         </div>
 
@@ -226,7 +224,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-03-02 14:37" pubdate>
+        <time datetime="2025-03-02 17:57" pubdate>
           2025年3月2日 下午
         </time>
       </span>
@@ -238,7 +236,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          513 字
+          205 字
         
       </span>
     
@@ -249,7 +247,7 @@
         
         
         
-          5 分钟
+          2 分钟
         
       </span>
     
@@ -295,37 +293,14 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">二叉树学习</h1>
+            <h1 id="seo-header">回溯算法</h1>
             
             
               <div class="markdown-body">
                 
-                <h5 id="c-定义二叉树（链式存储）"><a href="#c-定义二叉树（链式存储）" class="headerlink" title="c++定义二叉树（链式存储）"></a>c++定义二叉树（链式存储）</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">TreeNode</span> &#123;<br>	<span class="hljs-type">int</span> val;<br>    TreeNode *left;	<span class="hljs-comment">// 单独声明指针变量时，TreeNode* left和TreeNode* right等价，都是TreeNode指针类型</span><br>    TreeNode *right;<br>    <span class="hljs-built_in">TreeNode</span>(<span class="hljs-type">int</span> x) : <span class="hljs-built_in">val</span>(x), <span class="hljs-built_in">left</span>(<span class="hljs-literal">NULL</span>), <span class="hljs-built_in">right</span>(<span class="hljs-literal">NULL</span>) &#123;&#125; <span class="hljs-comment">// 构造函数</span><br>&#125;;<br></code></pre></td></tr></table></figure>
+                <h1 id="回溯算法"><a href="#回溯算法" class="headerlink" title="回溯算法"></a>回溯算法</h1><p>回溯算法是递归算法的副产品，一般回溯算法的代码模板为：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// 以组合问题为例，其中n为元素的个数，k为组合集合元素个数，startIndex为搜索的位置</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">backTracking</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> k, <span class="hljs-type">int</span> startIndex)</span></span>&#123;<br>    <span class="hljs-comment">// 递归的出口，就是找到了一个组合</span><br>    <span class="hljs-keyword">if</span>(path.<span class="hljs-built_in">size</span>() == k)&#123; <br>        result.<span class="hljs-built_in">push_back</span>(path);<br>        <span class="hljs-keyword">return</span>;<br>    &#125; <br>    <span class="hljs-comment">// 从startIndex开始搜索，一般startIndex第一次传入为1，i &lt;= n可以改成i &lt;= n - (k - path.size()) + 1，达到剪枝效果</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = startIndex; i &lt;= n; i++)&#123;<br>        path.<span class="hljs-built_in">push_back</span>(i); <span class="hljs-comment">// 把当前搜索结果加入结果集</span><br>        <span class="hljs-built_in">backTracking</span>(n, k, i<span class="hljs-number">+1</span>) <span class="hljs-comment">// 搜索下一层可以加入结果集的结果，就是递归</span><br>        path.<span class="hljs-built_in">pop_back</span>(); <span class="hljs-comment">// 回溯，穷举完剩下的所有结果</span><br>    &#125;<br>&#125;<br><br>vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">getResult</span>(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> k)&#123;<br>    <span class="hljs-built_in">backTracking</span>(n, k, <span class="hljs-number">1</span>);<br>    <span class="hljs-keyword">return</span> result;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h4 id="二叉树遍历"><a href="#二叉树遍历" class="headerlink" title="二叉树遍历"></a>二叉树遍历</h4><h5 id="前序遍历（递归）"><a href="#前序遍历（递归）" class="headerlink" title="前序遍历（递归）"></a>前序遍历（递归）</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">/*访问节点顺序：中左右*/</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">preOrder</span><span class="hljs-params">(TreeNode* root)</span></span>&#123;<br>    <span class="hljs-keyword">if</span>(root == <span class="hljs-literal">nullptr</span>) <span class="hljs-keyword">return</span>;<br>    <span class="hljs-comment">//操作</span><br>    <span class="hljs-built_in">preOrder</span>(root-&gt;left);<br>    <span class="hljs-built_in">preOrder</span>(root-&gt;right);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h5 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h5><p>利用栈，每次先放根节点，再放右孩子，接着是左孩子（出栈顺序相反）</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">preOrder</span><span class="hljs-params">(TreeNode* root)</span></span>&#123;<br>	stack&lt;TreeNode*&gt; st;<br>    <span class="hljs-keyword">if</span>(root == <span class="hljs-literal">NULL</span>) <span class="hljs-keyword">return</span>;<br>    st.<span class="hljs-built_in">push</span>(root);<br>    <span class="hljs-keyword">while</span>(!st.<span class="hljs-built_in">empty</span>())&#123;<br>        TreeNode* node = st.<span class="hljs-built_in">top</span>(); <span class="hljs-comment">// 根节点出栈</span><br>        st.<span class="hljs-built_in">pop</span>();<br>        <span class="hljs-comment">// 对根节点的操作</span><br>        <span class="hljs-keyword">if</span>(node-&gt;right) st.<span class="hljs-built_in">push</span>(node-&gt;right);<br>        <span class="hljs-keyword">if</span>(node-&gt;left) st.<span class="hljs-built_in">push</span>(node-&gt;left);<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<h5 id="中序遍历（递归）"><a href="#中序遍历（递归）" class="headerlink" title="中序遍历（递归）"></a>中序遍历（递归）</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">/*左中右*/</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">inOrder</span><span class="hljs-params">(TreeNode* root)</span></span>&#123;<br>    <span class="hljs-keyword">if</span>(root == <span class="hljs-literal">nullptr</span>) <span class="hljs-keyword">return</span>;<br>    <span class="hljs-built_in">inOrder</span>(root-&gt;left);<br>    <span class="hljs-comment">//操作</span><br>    <span class="hljs-built_in">inOrder</span>(root-&gt;right);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h5 id="迭代-1"><a href="#迭代-1" class="headerlink" title="迭代"></a>迭代</h5><p>跟前序的迭代有所不同，前序是<strong>访问根然后处理根，访问和处理顺序一致，所以不好处理</strong>。</p>
-<p>中序是左中右，要先访问到树的最左孩子才能处理节点，而访问是从根开始的，因此处理顺序和访问顺序是不同的。</p>
-<p>处理方法：指针访问节点，栈处理节点</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">inOrder</span><span class="hljs-params">(TreeNode* root)</span></span>&#123;<br>    stack&lt;TreeNode*&gt; st;<br>    TreeNode* cur = root;<br>    <span class="hljs-keyword">if</span>(root == <span class="hljs-literal">NULL</span>) <span class="hljs-keyword">return</span>;<br>    <span class="hljs-keyword">while</span>(cur != <span class="hljs-literal">NULL</span> || !st.<span class="hljs-built_in">empty</span>())&#123;<br>        <span class="hljs-keyword">if</span>(cur != <span class="hljs-literal">NULL</span>)&#123;<br>            st.<span class="hljs-built_in">push</span>(cur); <span class="hljs-comment">// 用指针访问节点，直到最左孩子，同时把节点存入栈</span><br>            cur = cur-&gt;left;<br>        &#125;<br>        <span class="hljs-keyword">else</span>&#123;<br>            cur = st.<span class="hljs-built_in">top</span>();<br>            st.<span class="hljs-built_in">pop</span>();<br>            <span class="hljs-comment">// 对根节点的操作 中</span><br>            cur = cur-&gt;right; <span class="hljs-comment">// 右</span><br>        &#125;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<h5 id="后序遍历（递归）"><a href="#后序遍历（递归）" class="headerlink" title="后序遍历（递归）"></a>后序遍历（递归）</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">/*左右中*/</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">postOrder</span><span class="hljs-params">(TreeNode* root)</span></span>&#123;<br>    <span class="hljs-keyword">if</span>(root == <span class="hljs-literal">nullptr</span>) <span class="hljs-keyword">return</span>;<br>    <span class="hljs-built_in">postOrder</span>(root-&gt;left);<br>    <span class="hljs-built_in">postOrder</span>(root-&gt;right);<br>    <span class="hljs-comment">//操作</span><br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h5 id="迭代-2"><a href="#迭代-2" class="headerlink" title="迭代"></a>迭代</h5><p>与前序类似，思路为</p>
-<img src="/2025/03/02/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%AD%A6%E4%B9%A0/inOrder.png" srcset="/img/loading.gif" lazyload class="">
-
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">postOrder</span><span class="hljs-params">(TreeNode* root)</span></span>&#123;<br>    stack&lt;TreeNode*&gt; st;<br>    vector&lt;<span class="hljs-type">int</span>&gt; result; <span class="hljs-comment">// 存放结果的数组</span><br>    <span class="hljs-keyword">if</span>(root == <span class="hljs-literal">NULL</span>) <span class="hljs-keyword">return</span> result;<br>    st.<span class="hljs-built_in">push</span>(root);<br>    <span class="hljs-keyword">while</span>(!st.<span class="hljs-built_in">empty</span>())&#123;<br>        TreeNode* node = st.<span class="hljs-built_in">top</span>();<br>        st.<span class="hljs-built_in">pop</span>();<br>        result.<span class="hljs-built_in">push_back</span>(node-&gt;val); <span class="hljs-comment">// 对根节点的操作</span><br>        <span class="hljs-keyword">if</span>(node-&gt;left) st.<span class="hljs-built_in">push</span>(node-&gt;left);<br>        <span class="hljs-keyword">if</span>(node-&gt;right) st.<span class="hljs-built_in">push</span>(node-&gt;right);<br>    &#125;<br>    <span class="hljs-built_in">reverse</span>(result.<span class="hljs-built_in">begin</span>(), result.<span class="hljs-built_in">end</span>()); <span class="hljs-comment">// 翻转result数组，得到最终结果</span><br>	<span class="hljs-keyword">return</span> result;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>​	</p>
 
                 
               </div>
@@ -350,8 +325,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>二叉树学习</div>
-      <div>http://example.com/2025/03/02/二叉树学习/</div>
+      <div>回溯算法</div>
+      <div>http://example.com/2025/03/02/回溯算法/</div>
     </div>
     <div class="license-meta">
       
@@ -395,18 +370,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/03/02/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/" title="回溯算法">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">回溯算法</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/02/27/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" title="毕业设计">
-                        <span class="hidden-mobile">毕业设计</span>
+                      <a href="/2025/03/02/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%AD%A6%E4%B9%A0/" title="二叉树学习">
+                        <span class="hidden-mobile">二叉树学习</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
