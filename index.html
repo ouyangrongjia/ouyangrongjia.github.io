@@ -8,8 +8,8 @@
 <head>
   <meta charset="UTF-8">
 
-  <link rel="apple-touch-icon" sizes="76x76" href="/%5Cimg%5CwaterMelon.png">
-  <link rel="icon" href="/%5Cimg%5CwaterMelon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/fluid.png">
+  <link rel="icon" href="/images/fluid.png">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -20,16 +20,16 @@
   <meta name="keywords" content="">
   
     <meta property="og:type" content="website">
-<meta property="og:title" content="Gold_West">
+<meta property="og:title" content="Gold_Westの小破站">
 <meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Gold_West">
+<meta property="og:site_name" content="Gold_Westの小破站">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="rongjia ouyang">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Gold_West</title>
+  <title>Gold_Westの小破站</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/%5Cimg%5C2.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/images/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.1)">
       <div class="banner-text text-center fade-in-up">
@@ -248,7 +248,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2025/03/02/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/" target="_self">
         <div>
-          回溯算法回溯算法是递归算法的副产品，一般回溯算法的代码模板为： 12345678910111213141516171819// 以组合问题为例，其中n为元素的个数，k为组合集合元素个数，startIndex为搜索的位置void backTracking(int n, int k, int startIndex)&#123;    // 递归的出口，就是找到了一个组合    if(path.size
+          回溯算法回溯算法是递归算法的副产品，一般回溯算法的代码模板为： 剪枝优化：  已经选择的元素个数：path.size(); 所需需要的元素个数为: k - path.size(); 列表中剩余元素（n-i） &gt;&#x3D; 所需需要的元素个数（k - path.size()） 在集合n中至多要从该起始位置 : i &lt;&#x3D; n - (k - path.size()) + 1，开始
         </div>
       </a>
 
@@ -328,7 +328,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2025/02/27/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" target="_self">
         <div>
-          基于Deepseek的问答系统
+          基于Deepseek的问答系统（本地部署+微调+可视化问答系统+pdf投喂）1.Huggingface上下载Deepseek-r1:1.5b2.本地微调Deepseek3.合并量化后的模型导入Ollama1.合并量化模型1.尝试用以下代码对原始模型和LoRA权重进行合并123456789101112131415# 加载原来的模型base_model = AutoModelForCausalLM.f
         </div>
       </a>
 
