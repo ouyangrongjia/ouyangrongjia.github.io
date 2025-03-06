@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2025/03/02/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%AD%A6%E4%B9%A0/inOrder.png">
 <meta property="article:published_time" content="2025-03-02T06:37:58.000Z">
-<meta property="article:modified_time" content="2025-03-02T07:27:58.151Z">
+<meta property="article:modified_time" content="2025-03-05T09:19:28.083Z">
 <meta property="article:author" content="rongjia ouyang">
 <meta property="article:tag" content="数据结构与算法">
 <meta name="twitter:card" content="summary_large_image">
@@ -311,9 +311,14 @@
 
 <h5 id="中序遍历（递归）"><a href="#中序遍历（递归）" class="headerlink" title="中序遍历（递归）"></a>中序遍历（递归）</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">/*左中右*/</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">inOrder</span><span class="hljs-params">(TreeNode* root)</span></span>&#123;<br>    <span class="hljs-keyword">if</span>(root == <span class="hljs-literal">nullptr</span>) <span class="hljs-keyword">return</span>;<br>    <span class="hljs-built_in">inOrder</span>(root-&gt;left);<br>    <span class="hljs-comment">//操作</span><br>    <span class="hljs-built_in">inOrder</span>(root-&gt;right);<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h5 id="迭代-1"><a href="#迭代-1" class="headerlink" title="迭代"></a>迭代</h5><p>跟前序的迭代有所不同，前序是<strong>访问根然后处理根，访问和处理顺序一致，所以不好处理</strong>。</p>
-<p>中序是左中右，要先访问到树的最左孩子才能处理节点，而访问是从根开始的，因此处理顺序和访问顺序是不同的。</p>
-<p>处理方法：指针访问节点，栈处理节点</p>
+<h5 id="迭代-1"><a href="#迭代-1" class="headerlink" title="迭代"></a>迭代</h5><ul>
+<li><p>跟前序的迭代有所不同，前序是<strong>访问根然后处理根，访问和处理顺序一致，所以不好处理</strong>。</p>
+</li>
+<li><p>中序是左中右，要先访问到树的最左孩子才能处理节点，而访问是从根开始的，因此处理顺序和访问顺序是不同的。</p>
+</li>
+<li><p>处理方法：指针访问节点，栈处理节点</p>
+</li>
+</ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">inOrder</span><span class="hljs-params">(TreeNode* root)</span></span>&#123;<br>    stack&lt;TreeNode*&gt; st;<br>    TreeNode* cur = root;<br>    <span class="hljs-keyword">if</span>(root == <span class="hljs-literal">NULL</span>) <span class="hljs-keyword">return</span>;<br>    <span class="hljs-keyword">while</span>(cur != <span class="hljs-literal">NULL</span> || !st.<span class="hljs-built_in">empty</span>())&#123;<br>        <span class="hljs-keyword">if</span>(cur != <span class="hljs-literal">NULL</span>)&#123;<br>            st.<span class="hljs-built_in">push</span>(cur); <span class="hljs-comment">// 用指针访问节点，直到最左孩子，同时把节点存入栈</span><br>            cur = cur-&gt;left;<br>        &#125;<br>        <span class="hljs-keyword">else</span>&#123;<br>            cur = st.<span class="hljs-built_in">top</span>();<br>            st.<span class="hljs-built_in">pop</span>();<br>            <span class="hljs-comment">// 对根节点的操作 中</span><br>            cur = cur-&gt;right; <span class="hljs-comment">// 右</span><br>        &#125;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 

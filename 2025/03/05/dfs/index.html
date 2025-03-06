@@ -19,22 +19,22 @@
   <meta name="author" content="rongjia ouyang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="回溯算法回溯算法是递归算法的副产品，一般回溯算法的代码模板为： 剪枝优化：  已经选择的元素个数：path.size(); 所需需要的元素个数为: k - path.size(); 列表中剩余元素（n-i） &gt;&#x3D; 所需需要的元素个数（k - path.size()） 在集合n中至多要从该起始位置 : i &lt;&#x3D; n - (k - path.size()) + 1，开始">
+    <meta name="description" content="深度优先搜索 DFS dfs是可一个方向去搜，不到黄河不回头，直到遇到绝境了，搜不下去了，再换方向（换方向的过程就涉及到了回溯）。  换方向是指回到上一个还有路的节点，找另外一条没走过的路径，尝试能不能达到终点。 代码框架 12345678910111213141516171819void dfs(参数)&#123;    if(退出条件) return;    处理节点    dfs(图,选择的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="回溯算法">
-<meta property="og:url" content="http://example.com/2025/03/02/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:title" content="dfs">
+<meta property="og:url" content="http://example.com/2025/03/05/dfs/index.html">
 <meta property="og:site_name" content="Gold_Westの小破站">
-<meta property="og:description" content="回溯算法回溯算法是递归算法的副产品，一般回溯算法的代码模板为： 剪枝优化：  已经选择的元素个数：path.size(); 所需需要的元素个数为: k - path.size(); 列表中剩余元素（n-i） &gt;&#x3D; 所需需要的元素个数（k - path.size()） 在集合n中至多要从该起始位置 : i &lt;&#x3D; n - (k - path.size()) + 1，开始">
+<meta property="og:description" content="深度优先搜索 DFS dfs是可一个方向去搜，不到黄河不回头，直到遇到绝境了，搜不下去了，再换方向（换方向的过程就涉及到了回溯）。  换方向是指回到上一个还有路的节点，找另外一条没走过的路径，尝试能不能达到终点。 代码框架 12345678910111213141516171819void dfs(参数)&#123;    if(退出条件) return;    处理节点    dfs(图,选择的">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-03-02T09:57:56.000Z">
-<meta property="article:modified_time" content="2025-03-05T09:12:53.929Z">
+<meta property="article:published_time" content="2025-03-05T09:12:33.000Z">
+<meta property="article:modified_time" content="2025-03-05T14:38:43.205Z">
 <meta property="article:author" content="rongjia ouyang">
 <meta property="article:tag" content="数据结构与算法">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>回溯算法 - Gold_Westの小破站</title>
+  <title>dfs - Gold_Westの小破站</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -213,7 +213,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="回溯算法"></span>
+            <span id="subtitle" data-typed-text="dfs"></span>
           
         </div>
 
@@ -224,8 +224,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-03-02 17:57" pubdate>
-          2025年3月2日 下午
+        <time datetime="2025-03-05 17:12" pubdate>
+          2025年3月5日 下午
         </time>
       </span>
     
@@ -236,7 +236,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          379 字
+          558 字
         
       </span>
     
@@ -247,7 +247,7 @@
         
         
         
-          4 分钟
+          5 分钟
         
       </span>
     
@@ -293,26 +293,23 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">回溯算法</h1>
+            <h1 id="seo-header">dfs</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="回溯算法"><a href="#回溯算法" class="headerlink" title="回溯算法"></a>回溯算法</h1><p>回溯算法是递归算法的副产品，一般回溯算法的代码模板为：</p>
-<p>剪枝优化：</p>
-<ol>
-<li>已经选择的元素个数：path.size();</li>
-<li>所需需要的元素个数为: k - path.size();</li>
-<li>列表中剩余元素（n-i） &gt;&#x3D; 所需需要的元素个数（k - path.size()）</li>
-<li>在集合n中至多要从该起始位置 : i &lt;&#x3D; n - (k - path.size()) + 1，开始遍历</li>
-</ol>
-<p>为什么有个+1呢，因为包括起始位置，我们要是一个左闭的集合。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// 回溯模板</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">backtracking</span><span class="hljs-params">(参数)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (终止条件) &#123;<br>        存放结果;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-keyword">for</span> (选择：本层集合中元素（树中节点孩子的数量就是集合的大小）) &#123;<br>        处理节点;<br>        <span class="hljs-built_in">backtracking</span>(路径，选择列表); <span class="hljs-comment">// 递归</span><br>        回溯，撤销处理结果<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+                <h1 id="深度优先搜索-DFS"><a href="#深度优先搜索-DFS" class="headerlink" title="深度优先搜索 DFS"></a>深度优先搜索 DFS</h1><ul>
+<li><p>dfs是可一个方向去搜，不到黄河不回头，直到遇到绝境了，搜不下去了，再换方向（换方向的过程就涉及到了回溯）。</p>
+</li>
+<li><p>换方向是指回到上一个还有路的节点，找另外一条没走过的路径，尝试能不能达到终点。</p>
+<p>代码框架</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(参数)</span></span>&#123;<br>    <span class="hljs-keyword">if</span>(退出条件) <span class="hljs-keyword">return</span>;<br>    处理节点<br>    <span class="hljs-built_in">dfs</span>(图,选择的节点);<br>    回溯，撤销处理结果 <span class="hljs-comment">// 这里一般不用写，类似于二叉树的遍历，隐含了回溯。</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(参数)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (终止条件) &#123;<br>        存放结果;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">for</span> (选择：本节点所连接的其他节点) &#123;<br>        处理节点;<br>        <span class="hljs-built_in">dfs</span>(图，选择的节点); <span class="hljs-comment">// 递归</span><br>        回溯，撤销处理结果<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 
-
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// 以组合问题为例，其中n为元素的个数，k为组合集合元素个数，startIndex为搜索的位置</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">backTracking</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> k, <span class="hljs-type">int</span> startIndex)</span></span>&#123;<br>    <span class="hljs-comment">// 递归的出口，就是找到了一个组合</span><br>    <span class="hljs-keyword">if</span>(path.<span class="hljs-built_in">size</span>() == k)&#123; <br>        result.<span class="hljs-built_in">push_back</span>(path);<br>        <span class="hljs-keyword">return</span>;<br>    &#125; <br>    <span class="hljs-comment">// 从startIndex开始搜索，一般startIndex第一次传入为1，i &lt;= n可以改成i &lt;= n - (k - path.size()) + 1，达到剪枝效果</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = startIndex; i &lt;= n; i++)&#123;<br>        path.<span class="hljs-built_in">push_back</span>(i); <span class="hljs-comment">// 把当前搜索结果加入结果集</span><br>        <span class="hljs-built_in">backTracking</span>(n, k, i<span class="hljs-number">+1</span>) <span class="hljs-comment">// 搜索下一层可以加入结果集的结果，就是递归</span><br>        path.<span class="hljs-built_in">pop_back</span>(); <span class="hljs-comment">// 回溯，穷举完剩下的所有结果</span><br>    &#125;<br>&#125;<br><br>vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">getResult</span>(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> k)&#123;<br>    <span class="hljs-built_in">backTracking</span>(n, k, <span class="hljs-number">1</span>);<br>    <span class="hljs-keyword">return</span> result;<br>&#125;<br></code></pre></td></tr></table></figure>
-
+</li>
+<li><p>用邻接表来实现输出任意两个节点之间的所有路径</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">int</span> edge_index = <span class="hljs-number">0</span>;<br>vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; result; <span class="hljs-comment">// 记录路径结果集</span><br>vector&lt;<span class="hljs-type">int</span>&gt; path; <span class="hljs-comment">// 记录路径</span><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Edge</span>&#123;<br>    Edge *next; <span class="hljs-comment">// 指向下一条边结点</span><br>    <span class="hljs-type">int</span> to; <span class="hljs-comment">// 边指向的顶点</span><br>    <span class="hljs-comment">// int w;</span><br>&#125; edges[<span class="hljs-number">100005</span>];<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Node</span>&#123;<br>    Edge* first; <span class="hljs-comment">// 指向第一条邻接边的指针</span><br>&#125;nodes[<span class="hljs-number">100005</span>];<br><span class="hljs-comment">// 在顶点x和顶点y之间加一条权值为z的边</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">addEdge</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span></span>&#123;<br>    edges[edge_index].to = y;<br>    <span class="hljs-comment">// edges[edge_index].w = z;</span><br>    <span class="hljs-comment">// 头插法插入新边</span><br>    edges[edge_index].next = nodes[x].first;<br>    nodes[x].first = &amp;edges[edge_index];	<span class="hljs-comment">// first是指针，edges是Edge类型，所以要用&amp;取到edges的地址传给first</span><br>    edge_index++;<br>&#125;<br><span class="hljs-comment">// dfs</span><br><span class="hljs-comment">// 递归必须要有一个完整的过程，即当前顶点加入路径集-&gt;找完当前顶点的所有邻接点-&gt;回溯当前节点</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> now, <span class="hljs-type">int</span> target)</span></span>&#123;<br>	path.<span class="hljs-built_in">push_back</span>(now);<br>    <span class="hljs-keyword">if</span>(now == target)&#123;<br>        result.<span class="hljs-built_in">push_back</span>(path);<br>        path.<span class="hljs-built_in">pop_back</span>();<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    Edge* e = nodes[now].first;<br>    <span class="hljs-keyword">while</span>(e != <span class="hljs-literal">nullptr</span>)&#123;<br>    	<span class="hljs-built_in">dfs</span>(e-&gt;to, target);<br>    	e = e-&gt;next;<br>	&#125;<br>    path.<span class="hljs-built_in">pop_back</span>(); <span class="hljs-comment">// 回溯</span><br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-type">int</span> m, n;<br>    cin &gt;&gt; m &gt;&gt; n;<br>    <span class="hljs-comment">// 初始化所有节点的first指针</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt;= m; ++i) &#123;<br>        nodes[i].first = <span class="hljs-literal">nullptr</span>;<br>    &#125;<br>    <span class="hljs-comment">// 加边</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)&#123;<br>    	<span class="hljs-type">int</span> v1, v2;<br>        cin &gt;&gt; v1 &gt;&gt; v2;<br>        <span class="hljs-built_in">addEdge</span>(v1, v2);<br>    &#125;<br>    <span class="hljs-built_in">dfs</span>(<span class="hljs-number">1</span>, m); 	<span class="hljs-comment">// 1-m的所有路径</span><br>    <span class="hljs-built_in">reverse</span>(result.<span class="hljs-built_in">begin</span>(), result.<span class="hljs-built_in">end</span>());<br>    <span class="hljs-keyword">if</span>(result.<span class="hljs-built_in">size</span>() == <span class="hljs-number">0</span>)&#123;<br>        cout &lt;&lt; <span class="hljs-number">-1</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span>&#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span>&amp; res : result)&#123;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> node : res)&#123;<br>            cout &lt;&lt; node &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;<br>            &#125;<br>            cout &lt;&lt; endl;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
 
                 
               </div>
@@ -337,8 +334,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>回溯算法</div>
-      <div>http://example.com/2025/03/02/回溯算法/</div>
+      <div>dfs</div>
+      <div>http://example.com/2025/03/05/dfs/</div>
     </div>
     <div class="license-meta">
       
@@ -350,7 +347,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年3月2日</div>
+          <div>2025年3月5日</div>
         </div>
       
       
@@ -382,9 +379,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/03/05/dfs/" title="dfs">
+                      <a href="/2025/03/06/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" title="最小生成树">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">dfs</span>
+                        <span class="hidden-mobile">最小生成树</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -392,8 +389,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/03/02/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%AD%A6%E4%B9%A0/" title="二叉树学习">
-                        <span class="hidden-mobile">二叉树学习</span>
+                      <a href="/2025/03/02/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/" title="回溯算法">
+                        <span class="hidden-mobile">回溯算法</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
