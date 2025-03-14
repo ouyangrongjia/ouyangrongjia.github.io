@@ -19,22 +19,26 @@
   <meta name="author" content="rongjia ouyang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="最小生成树primprim算法三部曲，每次寻找距离最小生成树最近的节点：  第一步，选距离生成树最近节点  第二步，最近节点加入生成树  第三步，更新非生成树节点到最小生成树的距离（即更新minDist数组）minDist数组里记录的其实也是最小生成树的边的权值 题目在世界的某个区域，有一些分散的神秘岛屿，每个岛屿上都有一种珍稀的资源或者宝藏。国王打算在这些岛屿上建公路，方便运输。 不同岛屿之间，">
+    <meta name="description" content="Docker数据一般存储在C盘，但主要数据其实是存储在WSL2的虚拟硬盘里，因为Docker Desktop依赖于WSL2以实现在windows上运行linux容器。 1. 停止docker服务和WSL 退出docker（docker desktop）图标下的Quit Docker Desktop  管理员身份打开PowerShell，执行wsl –shutdown关闭所有wsl实例">
 <meta property="og:type" content="article">
-<meta property="og:title" content="最小生成树">
-<meta property="og:url" content="http://example.com/2025/03/06/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/index.html">
+<meta property="og:title" content="docker迁移">
+<meta property="og:url" content="http://example.com/2025/03/14/docker%E8%BF%81%E7%A7%BB/index.html">
 <meta property="og:site_name" content="Gold_Westの小破站">
-<meta property="og:description" content="最小生成树primprim算法三部曲，每次寻找距离最小生成树最近的节点：  第一步，选距离生成树最近节点  第二步，最近节点加入生成树  第三步，更新非生成树节点到最小生成树的距离（即更新minDist数组）minDist数组里记录的其实也是最小生成树的边的权值 题目在世界的某个区域，有一些分散的神秘岛屿，每个岛屿上都有一种珍稀的资源或者宝藏。国王打算在这些岛屿上建公路，方便运输。 不同岛屿之间，">
+<meta property="og:description" content="Docker数据一般存储在C盘，但主要数据其实是存储在WSL2的虚拟硬盘里，因为Docker Desktop依赖于WSL2以实现在windows上运行linux容器。 1. 停止docker服务和WSL 退出docker（docker desktop）图标下的Quit Docker Desktop  管理员身份打开PowerShell，执行wsl –shutdown关闭所有wsl实例">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-03-06T05:33:51.000Z">
-<meta property="article:modified_time" content="2025-03-13T08:45:14.269Z">
+<meta property="og:image" content="http://example.com/2025/03/14/docker%E8%BF%81%E7%A7%BB/1.png">
+<meta property="og:image" content="http://example.com/2025/03/14/docker%E8%BF%81%E7%A7%BB/2.png">
+<meta property="og:image" content="http://example.com/2025/03/14/docker%E8%BF%81%E7%A7%BB/3.png">
+<meta property="article:published_time" content="2025-03-14T08:30:33.000Z">
+<meta property="article:modified_time" content="2025-03-14T13:10:00.498Z">
 <meta property="article:author" content="rongjia ouyang">
-<meta property="article:tag" content="数据结构与算法">
+<meta property="article:tag" content="技术">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2025/03/14/docker%E8%BF%81%E7%A7%BB/1.png">
   
   
   
-  <title>最小生成树 - Gold_Westの小破站</title>
+  <title>docker迁移 - Gold_Westの小破站</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -213,7 +217,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="最小生成树"></span>
+            <span id="subtitle" data-typed-text="docker迁移"></span>
           
         </div>
 
@@ -224,8 +228,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-03-06 13:33" pubdate>
-          2025年3月6日 下午
+        <time datetime="2025-03-14 16:30" pubdate>
+          2025年3月14日 下午
         </time>
       </span>
     
@@ -236,7 +240,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          939 字
+          244 字
         
       </span>
     
@@ -247,7 +251,7 @@
         
         
         
-          8 分钟
+          3 分钟
         
       </span>
     
@@ -293,27 +297,48 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">最小生成树</h1>
+            <h1 id="seo-header">docker迁移</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h1><h3 id="prim"><a href="#prim" class="headerlink" title="prim"></a>prim</h3><p>prim算法三部曲，每次寻找距离最小生成树最近的节点：</p>
-<ul>
-<li><p>第一步，选距离生成树最近节点</p>
+                <p>Docker数据一般存储在C盘，但主要数据其实是存储在WSL2的虚拟硬盘里，因为Docker Desktop依赖于WSL2以实现在windows上运行linux容器。</p>
+<h5 id="1-停止docker服务和WSL"><a href="#1-停止docker服务和WSL" class="headerlink" title="1. 停止docker服务和WSL"></a>1. 停止docker服务和WSL</h5><ol>
+<li><p>退出docker（docker desktop）图标下的Quit Docker Desktop</p>
 </li>
-<li><p>第二步，最近节点加入生成树</p>
+<li><p>管理员身份打开PowerShell，执行wsl –shutdown关闭所有wsl实例</p>
 </li>
-<li><p>第三步，更新非生成树节点到最小生成树的距离（即更新minDist数组）<strong>minDist数组里记录的其实也是最小生成树的边的权值</strong></p>
-<h5 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h5><p>在世界的某个区域，有一些分散的神秘岛屿，每个岛屿上都有一种珍稀的资源或者宝藏。国王打算在这些岛屿上建公路，方便运输。</p>
-<p>不同岛屿之间，路途距离不同，国王希望你可以规划建公路的方案，如何可以以最短的总公路距离将 所有岛屿联通起来（注意：这是一个无向图）。 </p>
-<p>给定一张地图，其中包括了所有的岛屿，以及它们之间的距离。以最小化公路建设长度，确保可以链接到所有岛屿。</p>
-<p>输入：第一行包含两个整数V 和 E，V代表顶点数，E代表边数 。顶点编号是从1到V。例如：V&#x3D;2，一个有两个顶点，分别是1和2。</p>
-<p>接下来共有 E 行，每行三个整数 v1，v2 和 val，v1 和 v2 为边的起点和终点，val代表边的权值。</p>
-<h6 id="prim算法"><a href="#prim算法" class="headerlink" title="prim算法"></a>prim算法</h6><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">prim</span><span class="hljs-params">(<span class="hljs-type">int</span> v, <span class="hljs-type">int</span> e)</span></span>&#123;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-type">int</span> v, e;<br>    cin &gt;&gt; v &gt;&gt; e;<br>	vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">graph</span>(v + <span class="hljs-number">1</span>, <span class="hljs-built_in">vector</span>&lt;<span class="hljs-type">int</span>&gt;(v + <span class="hljs-number">1</span>, <span class="hljs-number">10001</span>));<br>	<span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">minDist</span><span class="hljs-params">(v + <span class="hljs-number">1</span>, <span class="hljs-number">10001</span>)</span></span>;<br>	<span class="hljs-function">vector&lt;<span class="hljs-type">bool</span>&gt; <span class="hljs-title">visit</span><span class="hljs-params">(v + <span class="hljs-number">1</span>, <span class="hljs-literal">false</span>)</span></span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= e; i++)&#123;<br>        <span class="hljs-type">int</span> x, y, z;<br>        cin &gt;&gt; x &gt;&gt; y &gt;&gt; z;<br>        graph[x][y] = z;<br>        graph[y][x] = z; <span class="hljs-comment">// 无向图两个方向都有权重</span><br>    &#125;<br>    <br>    <span class="hljs-comment">// 如果要输出路径，则可以用一个parent数组记录</span><br>    <span class="hljs-comment">// vector&lt;int&gt; parent(v + 1, -1);</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; v; i++)&#123;<br>    <span class="hljs-type">int</span> cur = <span class="hljs-number">0</span>; <span class="hljs-comment">// 本次加入最小生成树的节点</span><br>    <span class="hljs-type">int</span> minVal = INT_MAX;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= v; j++)&#123; <span class="hljs-comment">// 三部曲之一：选择加入的节点</span><br>        <span class="hljs-keyword">if</span>(!visit[j] &amp;&amp; minDist[j] &lt; minVal)&#123;<br>            minVal = minDist[j];<br>            cur = j;<br>        &#125;<br>    &#125;<br>    <span class="hljs-comment">// 三部曲之二：将离最小生成树最近的节点加入最小生成树</span><br>    visit[cur] = <span class="hljs-literal">true</span>;<br>    <span class="hljs-comment">// 三部曲之三：更新minDist数组</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> k = <span class="hljs-number">1</span>; k &lt;= v; k++)&#123;<br>        <span class="hljs-keyword">if</span>(!visit[k] &amp;&amp; graph[cur][k] &lt; minDist[k])<br>            minDist[k] = graph[cur][k];<br>        	<span class="hljs-comment">// parent[j] = cur; // 记录边</span><br>    &#125;<br>	&#125;<br>    <span class="hljs-type">int</span> res = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>; i &lt;= v; i++) res += minDist[i];<br>    cout &lt;&lt; res;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+</ol>
+<img src="/2025/03/14/docker%E8%BF%81%E7%A7%BB/1.png" srcset="/img/loading.gif" lazyload class="">
 
-<h6 id="Kruskal算法"><a href="#Kruskal算法" class="headerlink" title="Kruskal算法"></a>Kruskal算法</h6><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">DisjointSet</span>&#123;<br><span class="hljs-keyword">private</span>:<br>	vector&lt;<span class="hljs-type">int</span>&gt; parent;<br><span class="hljs-keyword">public</span>:<br>	<span class="hljs-comment">// 初始化并查集</span><br>	<span class="hljs-built_in">DisjointSet</span>(<span class="hljs-type">int</span> n)&#123;<br>		parent.<span class="hljs-built_in">resize</span>(n + <span class="hljs-number">1</span>);<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)&#123;<br>			parent[i] = i; <span class="hljs-comment">// 初始时，每个元素的父亲指向自己 </span><br>		&#125;<br>	&#125; <br>	<br>	<span class="hljs-comment">// 查找（路径压缩） </span><br>	<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span>&#123;<br>		<span class="hljs-keyword">if</span>(parent[x] != x)&#123;<br>			parent[x] = <span class="hljs-built_in">find</span>(parent[x]); <span class="hljs-comment">// 使路径上所有节点指向根节点 </span><br>		&#125; <br>		<span class="hljs-keyword">return</span> parent[x];<br>	&#125; <br>	<br>	<span class="hljs-comment">// 判断两个元素是否在同一个集合里</span><br>	<span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">isConnected</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span></span>&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-built_in">find</span>(x) == <span class="hljs-built_in">find</span>(y);<br>	&#125; <br>	<br>	<span class="hljs-comment">// 合并两个集合 </span><br>	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">unite</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span></span>&#123;<br>		<span class="hljs-keyword">if</span>(<span class="hljs-built_in">isConnected</span>(x, y)) <span class="hljs-keyword">return</span>;<br>		parent[<span class="hljs-built_in">find</span>(y)] = <span class="hljs-built_in">find</span>(x); <span class="hljs-comment">// 尤其注意合并时要用find(y)和find(x)，否则会导致合并错误 </span><br>	&#125;<br>&#125;; <br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Edge</span>&#123;<br>	<span class="hljs-type">int</span> from;<br>	<span class="hljs-type">int</span> to;<br>	<span class="hljs-type">int</span> val;<br>&#125;;<br><span class="hljs-type">int</span> index;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-type">int</span> v, e;<br>	cin &gt;&gt; v &gt;&gt; e;<br>	vector&lt;Edge&gt; edges;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= e; i++)&#123;<br>		<span class="hljs-type">int</span> x, y, z;<br>		cin &gt;&gt; x &gt;&gt; y &gt;&gt; z;<br>		edges.<span class="hljs-built_in">push_back</span>(&#123;x, y, z&#125;);<br>	&#125;<br>	<span class="hljs-comment">// 执行克鲁斯卡尔算法，每次加入一条权值最小的边，需要先对边进行排序，升序 </span><br>	<span class="hljs-built_in">sort</span>(edges.<span class="hljs-built_in">begin</span>(), edges.<span class="hljs-built_in">end</span>(), [](<span class="hljs-type">const</span> Edge&amp; a, <span class="hljs-type">const</span> Edge&amp; b)&#123;<br>		<span class="hljs-keyword">return</span> a.val &lt; b.val; <br>	&#125;); <br>	<br>	<span class="hljs-function">DisjointSet <span class="hljs-title">dsu</span><span class="hljs-params">(v)</span></span>; <br>	<span class="hljs-type">int</span> mst_weight = <span class="hljs-number">0</span>; <span class="hljs-comment">// 记录最小生成树的权值 </span><br>	vector&lt;Edge&gt; mst; <span class="hljs-comment">// 记录最小生成树 </span><br>	<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; edge: edges)&#123;<br>		<span class="hljs-keyword">if</span>(!dsu.<span class="hljs-built_in">isConnected</span>(edge.from, edge.to))&#123;<br>			dsu.<span class="hljs-built_in">unite</span>(edge.from, edge.to);<br>			mst_weight += edge.val;<br>			mst.<span class="hljs-built_in">push_back</span>(edge);<br>		&#125;<br>	&#125; <br>	<br>	cout &lt;&lt; mst_weight;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure></li>
-</ul>
+
+
+<h5 id="2-导出WSL发行版"><a href="#2-导出WSL发行版" class="headerlink" title="2. 导出WSL发行版"></a>2. 导出WSL发行版</h5><p>在4.30版本及以后，在运行<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=wsl&spm=1001.2101.3001.7020">wsl</a> -l -v时只有docker-desktop只有这一项，因为在此版本之后已经将docker-desktop与docker-desktop-data进行了合并</p>
+<p>导出 docker-desktop到临时文件夹</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">wsl <span class="hljs-literal">--export</span> docker<span class="hljs-literal">-desktop</span> <span class="hljs-string">&quot;C:\temp\docker-desktop.tar&quot;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h5 id="3-注销原有发行版"><a href="#3-注销原有发行版" class="headerlink" title="3. 注销原有发行版"></a>3. 注销原有发行版</h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">wsl <span class="hljs-literal">--unregister</span> docker<span class="hljs-literal">-desktop</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h5 id="4-导入到新磁盘"><a href="#4-导入到新磁盘" class="headerlink" title="4. 导入到新磁盘"></a>4. 导入到新磁盘</h5><ol>
+<li><p>创建目标目录，我的目录是“D:\docker”</p>
+</li>
+<li><p>导入并制定新路径</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">wsl <span class="hljs-literal">--import</span> docker<span class="hljs-literal">-desktop</span> D:\docker\docker<span class="hljs-literal">-desktop</span> C:\temp\docker<span class="hljs-literal">-desktop</span>.tar <br></code></pre></td></tr></table></figure></li>
+</ol>
+<img src="/2025/03/14/docker%E8%BF%81%E7%A7%BB/2.png" srcset="/img/loading.gif" lazyload class="">
+
+<h5 id="5-清理临时文件"><a href="#5-清理临时文件" class="headerlink" title="5. 清理临时文件"></a>5. 清理临时文件</h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">Remove-Item</span> <span class="hljs-string">&quot;C:\temp\docker-desktop-data.tar&quot;</span><br><span class="hljs-built_in">Remove-Item</span> <span class="hljs-string">&quot;C:\temp\docker-desktop.tar&quot;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h5 id="6-重启Docker，更新docker的镜像路径"><a href="#6-重启Docker，更新docker的镜像路径" class="headerlink" title="6. 重启Docker，更新docker的镜像路径"></a>6. 重启Docker，更新docker的镜像路径</h5><img src="/2025/03/14/docker%E8%BF%81%E7%A7%BB/3.png" srcset="/img/loading.gif" lazyload class="">
+
+<p>可以看到镜像文件已经全部被迁移过来了</p>
+
 
                 
               </div>
@@ -326,7 +351,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="print-no-link">#数据结构与算法</a>
+        <a href="/tags/%E6%8A%80%E6%9C%AF/" class="print-no-link">#技术</a>
       
     </div>
   
@@ -338,8 +363,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>最小生成树</div>
-      <div>http://example.com/2025/03/06/最小生成树/</div>
+      <div>docker迁移</div>
+      <div>http://example.com/2025/03/14/docker迁移/</div>
     </div>
     <div class="license-meta">
       
@@ -351,7 +376,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年3月6日</div>
+          <div>2025年3月14日</div>
         </div>
       
       
@@ -383,18 +408,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/03/08/%E6%9C%80%E7%9F%AD%E8%B7%AF%E9%97%AE%E9%A2%98/" title="最短路问题">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">最短路问题</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/03/05/dfs/" title="dfs">
-                        <span class="hidden-mobile">dfs</span>
+                      <a href="/2025/03/13/pdf%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97%E4%B8%8E%E7%BB%93%E6%9E%84%E5%8C%96/" title="pdf数据清洗与结构化">
+                        <span class="hidden-mobile">pdf数据清洗与结构化</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

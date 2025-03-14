@@ -27,6 +27,14 @@
 <meta property="og:description" content="基于Deepseek的问答系统（本地部署+微调+可视化问答系统+pdf投喂）1.Huggingface上下载Deepseek-r1:1.5b2.本地微调Deepseek3.合并量化后的模型导入Ollama1.合并量化模型1.尝试用以下代码对原始模型和LoRA权重进行合并123456789101112131415# 加载原来的模型base_model &#x3D; AutoModelForCausalLM.f">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2025/02/27/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/2.1.png">
+<meta property="og:image" content="http://example.com/2025/02/27/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/2.2.3.png">
+<meta property="og:image" content="http://example.com/2025/02/27/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/2.2.4.png">
+<meta property="og:image" content="http://example.com/2025/02/27/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/2.2.5.png">
+<meta property="og:image" content="http://example.com/2025/02/27/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/2.2.6.2.jpg">
+<meta property="og:image" content="http://example.com/2025/02/27/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/2.2.6.1.jpg">
+<meta property="og:image" content="http://example.com/2025/02/27/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/2.2.7.1.jpg">
+<meta property="og:image" content="http://example.com/2025/02/27/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/2.2.8.1.jpg">
+<meta property="og:image" content="http://example.com/2025/02/27/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/2.2.8.2.jpg">
 <meta property="article:published_time" content="2025-02-27T11:54:50.000Z">
 <meta property="article:modified_time" content="2025-03-05T09:19:33.512Z">
 <meta property="article:author" content="rongjia ouyang">
@@ -308,7 +316,7 @@
 <h5 id="2-量化模型"><a href="#2-量化模型" class="headerlink" title="2.量化模型"></a>2.量化模型</h5><h6 id="2-1-下载ollama源码"><a href="#2-1-下载ollama源码" class="headerlink" title="2.1 下载ollama源码"></a>2.1 下载ollama源码</h6><p>移步到新文件夹，git clone <a target="_blank" rel="noopener" href="https://github.com/ollama/ollama/tree/main">https://github.com/ollama/ollama/tree/main</a></p>
 <h6 id="2-2-下载llama-cpp源码"><a href="#2-2-下载llama-cpp源码" class="headerlink" title="2.2 下载llama.cpp源码"></a>2.2 下载llama.cpp源码</h6><p>同一文件夹下，git clone <a target="_blank" rel="noopener" href="https://github.com/ggerganov/llama.cpp">https://github.com/ggerganov/llama.cpp</a>	</p>
 <h6 id="2-3-复制项目文件"><a href="#2-3-复制项目文件" class="headerlink" title="2.3 复制项目文件"></a>2.3 复制项目文件</h6><p>使用pycharm打开ollama文件夹，把llama.cpp文件夹移入llm文件夹中</p>
-
+<img src="/2025/02/27/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/2.2.3.png" srcset="/img/loading.gif" lazyload class="">
 
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cmd"># 创建虚拟环境 <br>conda create -n llama python=<span class="hljs-number">3</span>.<span class="hljs-number">11</span><br># 激活虚拟环境 <br>conda activate llama<br># 安装llama.cpp的项目依赖<br><span class="hljs-built_in">cd</span> ./llm/llama.cpp<br>pip install -r requirements.txt<br></code></pre></td></tr></table></figure>
 
@@ -317,7 +325,7 @@
 
 
 <h6 id="2-4-安装cmake和编译器"><a href="#2-4-安装cmake和编译器" class="headerlink" title="2.4 安装cmake和编译器"></a>2.4 安装cmake和编译器</h6><p>cmake官网下载.msi安装器，安装完成后验证</p>
-
+<img src="/2025/02/27/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/2.2.4.png" srcset="/img/loading.gif" lazyload class="">
 
 
 
@@ -325,34 +333,34 @@
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs cmd"># 创建build文件夹<br><span class="hljs-built_in">mkdir</span> build<br><br># 进入build文件夹<br><span class="hljs-built_in">cd</span> build<br><br># 构建<br># 生成构建配置，解析CMakeList.txt<br>cmake ..<br># 执行编译，最终在bin中生成可执行文件<br>cmake --build . --config Release<br></code></pre></td></tr></table></figure>
 
 <p>最后得到的Release文件夹中的llama.quantize.exe就是我们用来量化模型可执行文件</p>
-
+<img src="/2025/02/27/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/2.2.5.png" srcset="/img/loading.gif" lazyload class="">
 
 
 
 <h6 id="2-6-把safttensors转化为gguf文件"><a href="#2-6-把safttensors转化为gguf文件" class="headerlink" title="2.6 把safttensors转化为gguf文件"></a>2.6 把safttensors转化为gguf文件</h6><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">python convert_hf_to_gguf.py D:\Desktop\Doc\大四\毕设\DeepSeek\merged_model <br></code></pre></td></tr></table></figure>
 
-
+<img src="/2025/02/27/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/2.2.6.2.jpg" srcset="/img/loading.gif" lazyload class="">
 
 <p>查看文件夹，正确得到了gguf文件</p>
-
+<img src="/2025/02/27/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/2.2.6.1.jpg" srcset="/img/loading.gif" lazyload class="">
 
 
 
 <h6 id="2-7-量化模型"><a href="#2-7-量化模型" class="headerlink" title="2.7 量化模型"></a>2.7 量化模型</h6><p>官方提供了多种量化格式，这里用的是Q4_K_M method</p>
-
+<img src="/2025/02/27/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/2.2.7.1.jpg" srcset="/img/loading.gif" lazyload class="">
 
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-comment"># bin/Release/llama-quantize </span><br><span class="hljs-attribute">llama</span>-quantize D:\Desktop\Doc\大四\毕设\DeepSeek\merged_model\deepseek-model-<span class="hljs-number">1</span>.<span class="hljs-number">5</span>B-F16.gguf D:\Desktop\Doc\大四\毕设\DeepSeek\merged_model\deepseek-model-<span class="hljs-number">1</span>.<span class="hljs-number">5</span>B-Q4_K_M.gguf Q4_K_M<br></code></pre></td></tr></table></figure>
 
 
 
 <h6 id="2-8-创建Ollama模型"><a href="#2-8-创建Ollama模型" class="headerlink" title="2.8 创建Ollama模型"></a>2.8 创建Ollama模型</h6><p>创建ModelFile文件</p>
-
+<img src="/2025/02/27/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/2.2.8.1.jpg" srcset="/img/loading.gif" lazyload class="">
 
 <p>创建模型</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">ollama create deepseek-lora-<span class="hljs-number">1</span>.<span class="hljs-number">5</span>b -f D:\Ollama\models\ModelFiles\deepseek-lora-<span class="hljs-number">1</span>.<span class="hljs-number">5</span>b.Modelfile<br></code></pre></td></tr></table></figure>
 
 <p>创建成功</p>
-
+<img src="/2025/02/27/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/2.2.8.2.jpg" srcset="/img/loading.gif" lazyload class="">
 
 <h2 id="4-投喂PDF-观察效果"><a href="#4-投喂PDF-观察效果" class="headerlink" title="4.投喂PDF,观察效果"></a>4.投喂PDF,观察效果</h2>
                 
