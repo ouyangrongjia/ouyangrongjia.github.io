@@ -19,26 +19,22 @@
   <meta name="author" content="rongjia ouyang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Docker数据一般存储在C盘，但主要数据其实是存储在WSL2的虚拟硬盘里，因为Docker Desktop依赖于WSL2以实现在windows上运行linux容器。 1. 停止docker服务和WSL 退出docker（docker desktop）图标下的Quit Docker Desktop  管理员身份打开PowerShell，执行wsl –shutdown关闭所有wsl实例">
+    <meta name="description" content="本次毕业设计中，我用到了本地大模型管理工具Dify来实现AI工作流、RAG管道、模型管理和可观测性功能的实现。具体部署步骤如下： 1. 安装Dify安装前提：电脑中有可以正确启动的Docker desktop     1.1 将Dify项目从github克隆下来 项目url：https:&#x2F;&#x2F;github.com&#x2F;langgenius&#x2F;dify 找一个文件夹，不推荐c盘，在当前目录下使用Git命令行">
 <meta property="og:type" content="article">
-<meta property="og:title" content="docker迁移">
-<meta property="og:url" content="http://example.com/2025/03/14/docker%E8%BF%81%E7%A7%BB/index.html">
+<meta property="og:title" content="dify">
+<meta property="og:url" content="http://example.com/2025/03/29/dify/index.html">
 <meta property="og:site_name" content="Gold_Westの小破站">
-<meta property="og:description" content="Docker数据一般存储在C盘，但主要数据其实是存储在WSL2的虚拟硬盘里，因为Docker Desktop依赖于WSL2以实现在windows上运行linux容器。 1. 停止docker服务和WSL 退出docker（docker desktop）图标下的Quit Docker Desktop  管理员身份打开PowerShell，执行wsl –shutdown关闭所有wsl实例">
+<meta property="og:description" content="本次毕业设计中，我用到了本地大模型管理工具Dify来实现AI工作流、RAG管道、模型管理和可观测性功能的实现。具体部署步骤如下： 1. 安装Dify安装前提：电脑中有可以正确启动的Docker desktop     1.1 将Dify项目从github克隆下来 项目url：https:&#x2F;&#x2F;github.com&#x2F;langgenius&#x2F;dify 找一个文件夹，不推荐c盘，在当前目录下使用Git命令行">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2025/03/14/docker%E8%BF%81%E7%A7%BB/1.png">
-<meta property="og:image" content="http://example.com/2025/03/14/docker%E8%BF%81%E7%A7%BB/2.png">
-<meta property="og:image" content="http://example.com/2025/03/14/docker%E8%BF%81%E7%A7%BB/3.png">
-<meta property="article:published_time" content="2025-03-14T08:30:33.000Z">
-<meta property="article:modified_time" content="2025-03-14T13:10:00.498Z">
+<meta property="article:published_time" content="2025-03-29T09:11:58.000Z">
+<meta property="article:modified_time" content="2025-03-29T09:51:56.556Z">
 <meta property="article:author" content="rongjia ouyang">
-<meta property="article:tag" content="技术">
+<meta property="article:tag" content="毕设">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/2025/03/14/docker%E8%BF%81%E7%A7%BB/1.png">
   
   
   
-  <title>docker迁移 - Gold_Westの小破站</title>
+  <title>dify - Gold_Westの小破站</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -217,7 +213,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="docker迁移"></span>
+            <span id="subtitle" data-typed-text="dify"></span>
           
         </div>
 
@@ -228,8 +224,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-03-14 16:30" pubdate>
-          2025年3月14日 下午
+        <time datetime="2025-03-29 17:11" pubdate>
+          2025年3月29日 下午
         </time>
       </span>
     
@@ -240,7 +236,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          244 字
+          703 字
         
       </span>
     
@@ -251,7 +247,7 @@
         
         
         
-          3 分钟
+          6 分钟
         
       </span>
     
@@ -297,47 +293,100 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">docker迁移</h1>
+            <h1 id="seo-header">dify</h1>
             
             
               <div class="markdown-body">
                 
-                <p>Docker数据一般存储在C盘，但主要数据其实是存储在WSL2的虚拟硬盘里，因为Docker Desktop依赖于WSL2以实现在windows上运行linux容器。</p>
-<h5 id="1-停止docker服务和WSL"><a href="#1-停止docker服务和WSL" class="headerlink" title="1. 停止docker服务和WSL"></a>1. 停止docker服务和WSL</h5><ol>
-<li><p>退出docker（docker desktop）图标下的Quit Docker Desktop</p>
-</li>
-<li><p>管理员身份打开PowerShell，执行wsl –shutdown关闭所有wsl实例</p>
-</li>
-</ol>
-<img src="/2025/03/14/docker%E8%BF%81%E7%A7%BB/1.png" srcset="/img/loading.gif" lazyload class="">
+                <p>本次毕业设计中，我用到了本地大模型管理工具Dify来实现AI工作流、RAG管道、模型管理和可观测性功能的实现。具体部署步骤如下：</p>
+<h3 id="1-安装Dify"><a href="#1-安装Dify" class="headerlink" title="1. 安装Dify"></a>1. 安装Dify</h3><p>安装前提：电脑中有可以正确启动的Docker desktop</p>
 
 
 
-<h5 id="2-导出WSL发行版"><a href="#2-导出WSL发行版" class="headerlink" title="2. 导出WSL发行版"></a>2. 导出WSL发行版</h5><p>在4.30版本及以后，在运行<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=wsl&spm=1001.2101.3001.7020">wsl</a> -l -v时只有docker-desktop只有这一项，因为在此版本之后已经将docker-desktop与docker-desktop-data进行了合并</p>
-<p>导出 docker-desktop到临时文件夹</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">wsl <span class="hljs-literal">--export</span> docker<span class="hljs-literal">-desktop</span> <span class="hljs-string">&quot;C:\temp\docker-desktop.tar&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>1.1 将Dify项目从github克隆下来</p>
+<p>项目url：<a target="_blank" rel="noopener" href="https://github.com/langgenius/dify">https://github.com/langgenius/dify</a></p>
+<p>找一个文件夹，不推荐c盘，在当前目录下使用Git命令行</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cmd">// 这种克隆要求电脑上配置了git秘钥，推荐这种<br>git clone git@github.com:langgenius/dify.git<br>// 直接从url克隆，可能会有神秘力量的阻拦导致下载失败<br>git clone https://github.com/langgenius/dify.git<br></code></pre></td></tr></table></figure>
 
 
 
-<h5 id="3-注销原有发行版"><a href="#3-注销原有发行版" class="headerlink" title="3. 注销原有发行版"></a>3. 注销原有发行版</h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">wsl <span class="hljs-literal">--unregister</span> docker<span class="hljs-literal">-desktop</span><br></code></pre></td></tr></table></figure>
+
+
+<p>1.2 在当前目录下通过docker compose启动Dify服务器</p>
+<p>在当前目录下继续使用Git命令行</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cmd"><span class="hljs-built_in">cd</span> dify<br><span class="hljs-built_in">cd</span> docker<br>cp .env.example .env<br>docker compose up -d<br></code></pre></td></tr></table></figure>
+
+<p>命令执行后会自动下载启动Dify服务器需要用到的镜像并compose在一起，下载完毕后启动docker desktop，会显示容器已经下载好了</p>
 
 
 
-<h5 id="4-导入到新磁盘"><a href="#4-导入到新磁盘" class="headerlink" title="4. 导入到新磁盘"></a>4. 导入到新磁盘</h5><ol>
-<li><p>创建目标目录，我的目录是“D:\docker”</p>
-</li>
-<li><p>导入并制定新路径</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">wsl <span class="hljs-literal">--import</span> docker<span class="hljs-literal">-desktop</span> D:\docker\docker<span class="hljs-literal">-desktop</span> C:\temp\docker<span class="hljs-literal">-desktop</span>.tar <br></code></pre></td></tr></table></figure></li>
-</ol>
-<img src="/2025/03/14/docker%E8%BF%81%E7%A7%BB/2.png" srcset="/img/loading.gif" lazyload class="">
 
-<h5 id="5-清理临时文件"><a href="#5-清理临时文件" class="headerlink" title="5. 清理临时文件"></a>5. 清理临时文件</h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">Remove-Item</span> <span class="hljs-string">&quot;C:\temp\docker-desktop-data.tar&quot;</span><br><span class="hljs-built_in">Remove-Item</span> <span class="hljs-string">&quot;C:\temp\docker-desktop.tar&quot;</span><br></code></pre></td></tr></table></figure>
+<p>1.3 运行容器后，访问 <a target="_blank" rel="noopener" href="http://localhost/install">http://localhost:/install</a></p>
 
 
+<p>至此，Dify安装完成</p>
+<h3 id="2-ollama下载大模型-（windows系统）"><a href="#2-ollama下载大模型-（windows系统）" class="headerlink" title="2. ollama下载大模型 （windows系统）"></a>2. ollama下载大模型 （windows系统）</h3><p>2.1 点击链接下载ollama</p>
+<p><a target="_blank" rel="noopener" href="https://ollama.com/download">Download Ollama on Windows</a></p>
 
-<h5 id="6-重启Docker，更新docker的镜像路径"><a href="#6-重启Docker，更新docker的镜像路径" class="headerlink" title="6. 重启Docker，更新docker的镜像路径"></a>6. 重启Docker，更新docker的镜像路径</h5><img src="/2025/03/14/docker%E8%BF%81%E7%A7%BB/3.png" srcset="/img/loading.gif" lazyload class="">
 
-<p>可以看到镜像文件已经全部被迁移过来了</p>
+<p>一路下一步就可以了，有必要可以通过环境变量设置ollama模型下载的目录，节省c盘空间</p>
+
+
+
+
+<p>2.2 启动ollama服务</p>
+<p>安装好之后，点击ollama文件夹中的这个exe文件，启动ollama服务</p>
+
+
+<p>启动后任务栏会有一个ollama的小图标</p>
+
+
+<p>cmd中输入 ollama -v</p>
+
+
+<p>出现版本号代表ollama启动成功</p>
+<p>2.3 通过ollama下载大模型</p>
+<p>打开cmd，命令行输入 ollama run deepseek-r1:7b，下载好后使用ollama list指令可以查看已经下载好的本地大模型</p>
+
+
+<p>这里选择下载大语言模型deepseek-r1:7b和嵌入模型nomic-embed-text，命令行输入为 ollama pull nomic-embed-text</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cmd">// 下载deepseek-r1模型<br>ollama run deepseek-r1:<span class="hljs-number">7</span>b<br>// 下载嵌入模型<br>ollama pull nomic-embed-text<br>// 查看模型<br>ollama list<br></code></pre></td></tr></table></figure>
+
+<p>下载完之后可以使用ollama run+模型名称来测试能否正常运行</p>
+
+
+
+
+<h3 id="3-Dify配置大模型"><a href="#3-Dify配置大模型" class="headerlink" title="3. Dify配置大模型"></a>3. Dify配置大模型</h3><p>3.1 创建AI工作流</p>
+<p>工作台创建空白应用，选择Chatflow</p>
+
+
+
+
+<p>3.2 编辑工作流</p>
+<p>创建好之后，点击进入编辑工作流</p>
+
+
+<p>具体如何编辑可以查看Dify的文档</p>
+<p>3.3 建立知识库</p>
+<p>顶部导航栏选择知识库，创建空白知识库后导入文件</p>
+
+
+
+
+<p>3.4 知识库设置</p>
+<p>左侧栏点击最下面的齿轮，设置知识库索引模式和检索方法</p>
+<p>索引模式选择高质量，选用之前下载好的ollama的嵌入模型（先在右上角设置里接入ollama API）右上角设置-&gt;模型供应商-&gt;ollama 下载即可</p>
+
+
+<p>reranker模型选用，可以提高文档检索的精确度</p>
+<p>3.5 测试应用</p>
+<p>设置好之后，在编辑工作流页面发布新应用并运行</p>
+
+
+<p>文档召回测试</p>
+
 
 
                 
@@ -351,7 +400,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%8A%80%E6%9C%AF/" class="print-no-link">#技术</a>
+        <a href="/tags/%E6%AF%95%E8%AE%BE/" class="print-no-link">#毕设</a>
       
     </div>
   
@@ -363,8 +412,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>docker迁移</div>
-      <div>http://example.com/2025/03/14/docker迁移/</div>
+      <div>dify</div>
+      <div>http://example.com/2025/03/29/dify/</div>
     </div>
     <div class="license-meta">
       
@@ -376,7 +425,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年3月14日</div>
+          <div>2025年3月29日</div>
         </div>
       
       
@@ -408,18 +457,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/03/29/dify/" title="dify">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">dify</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/03/13/pdf%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97%E4%B8%8E%E7%BB%93%E6%9E%84%E5%8C%96/" title="pdf数据清洗与结构化">
-                        <span class="hidden-mobile">pdf数据清洗与结构化</span>
+                      <a href="/2025/03/14/docker%E8%BF%81%E7%A7%BB/" title="docker迁移">
+                        <span class="hidden-mobile">docker迁移</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
