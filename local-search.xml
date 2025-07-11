@@ -4,6 +4,38 @@
   
   
   <entry>
+    <title>Attention_Is_All_You_Need</title>
+    <link href="/2025/07/11/Attention-Is-All-You-Need/"/>
+    <url>/2025/07/11/Attention-Is-All-You-Need/</url>
+    
+    <content type="html"><![CDATA[<h3 id="RNN与LSTM"><a href="#RNN与LSTM" class="headerlink" title="RNN与LSTM"></a>RNN与LSTM</h3><p>Transformer出现之前，RNN与LSTM是处理<strong>序列数据</strong>的主流模型</p><p>RNN&#x2F;LSTM机制：想象一下我们是怎么阅读句子的：一个词一个词地按顺序读。RNN模型也是这样工作的，它会按顺序处理每个词，并维护一个“记忆”（隐藏状态），这个记忆会传递给下一个词的处理过程。 这种方式很符合直觉，但也带来一个巨大的问题：</p><p><strong>它必须按顺序计算，无法并行处理</strong>。  就像你不能在读完第一个词之前就去读第五个词一样。这导致训练过程非常缓慢，尤其是当句子很长时。</p><h3 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h3><h4 id="Transformer模型如何工作？"><a href="#Transformer模型如何工作？" class="headerlink" title="Transformer模型如何工作？"></a>Transformer模型如何工作？</h4><p><img src="D:\Desktop\Project\blog\hexo-blog\source_posts\Attention-Is-All-You-Need\1.png" alt="image-20250711211451989"></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>AI学习</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Need</title>
+    <link href="/2025/07/11/Need/"/>
+    <url>/2025/07/11/Need/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>dify</title>
     <link href="/2025/03/29/dify/"/>
     <url>/2025/03/29/dify/</url>
