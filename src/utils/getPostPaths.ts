@@ -20,9 +20,21 @@ function getIdSlug(id: string): string {
   return postId.length > 0 ? String(postId[postId.length - 1]) : id;
 }
 
+function isIndexPost(filePath: string | undefined): boolean {
+  return (
+    filePath !== undefined &&
+    (filePath.endsWith("/index.md") || filePath.endsWith("/index.mdx"))
+  );
+}
+
 function getPostSlugPath(id: string, filePath: string | undefined): string {
   const pathSegments = getPostPathSegments(filePath);
   const slug = getIdSlug(id);
+
+  if (isIndexPost(filePath) && pathSegments.length > 0) {
+    return pathSegments.join("/");
+  }
+
   return pathSegments.length > 0
     ? [...pathSegments, slug].join("/")
     : String(slug);

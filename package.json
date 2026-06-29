@@ -7,6 +7,9 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "new:post": "node scripts/new-post.mjs",
+    "test:new-post": "node --test tests/new-post.test.mjs",
+    "test:post-routes": "npm run build && node --test tests/post-route.test.mjs",
     "build": "astro check && astro build && pagefind --site dist && node scripts/copy-pagefind.mjs",
     "preview": "astro preview",
     "sync": "astro sync",
