@@ -1,13 +1,13 @@
 {
-  "name": "blog",
+  "name": "ouyangrongjia.github.io",
   "type": "module",
-  "version": "6.1.0",
+  "version": "0.1.0",
   "engines": {
     "node": ">=22.12.0"
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && astro build && pagefind --site dist && cp -r dist/pagefind public/",
+    "build": "astro check && astro build && pagefind --site dist && node scripts/copy-pagefind.mjs",
     "preview": "astro preview",
     "sync": "astro sync",
     "astro": "astro",
@@ -45,6 +45,7 @@
     "prettier": "3.8.3",
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-tailwindcss": "^0.8.0",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "vite": "^7.3.6"
   }
 }
